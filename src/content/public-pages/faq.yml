@@ -27,17 +27,17 @@ sections:
     items:
       - question: What does Proxies do?
         answer: Proxies lets apartment seekers in Berlin book a local vetted proxy to attend an apartment viewing on their behalf.
+      - question: Who is Proxies for?
+        answer: It is for apartment seekers in Berlin, including people relocating, travelling, working during viewing hours, or already living elsewhere.
       - question: What does the proxy do at the viewing?
         answer: The proxy attends on time, takes photographs, completes a structured checklist, records important observations, can hand over documents, and submits a report within four hours.
       - question: What is in the report checklist?
         answer: The report checklist covers the essentials from a property viewing; photos of the living space, kitchen, bathroom, bedrooms, and window view; apartment details like floor level, natural light, noise, and any visible damage; building and surroundings such as the entrance, shared areas, stairwell or elevator, and the immediate area; plus viewing notes like how many people were there and anything important the landlord or agent said.
       - question: Can the proxy hand over documents for me?
         answer: Yes, the proxy can hand over documents on behalf of the seeker at the viewing.
-      - question: Who is Proxies for?
-        answer: It is for apartment seekers in Berlin, including people relocating, travelling, working during viewing hours, or already living elsewhere.
       - question: How much does it cost?
         answer: The price is €29.99 per viewing.
       - question: When am I charged?
         answer: A payment method is authorised during booking, and charging happens only after successful report delivery.
       - question: What if the report is late or missing?
-        answer: No report delivered on time means no charge. If Proxies fails to deliver, the current MVP policy is a full refund.
+        answer: No report delivered on time means no charge.
