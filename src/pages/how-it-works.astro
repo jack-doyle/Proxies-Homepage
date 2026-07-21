@@ -1,0 +1,11 @@
+---
+import { getEntry } from 'astro:content';
+import PublicPage from '../components/PublicPage.astro';
+
+const page = await getEntry('public-pages', 'how-it-works');
+
+if (!page) {
+  throw new Error('Missing how-it-works page content.');
+}
+---
+<PublicPage page={page} />

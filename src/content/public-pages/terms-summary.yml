@@ -1,0 +1,33 @@
+# TODO: confirm final legal and operational summary wording before publishing this page.
+slug: terms-summary
+navLabel: Terms summary
+title: Terms summary placeholders | Proxies
+description: Placeholder summaries for terms, cancellations, refunds, and operational policies.
+sourceDocs:
+  - pricing-and-policies.md
+  - viewing-lifecycle.md
+  - operations.md
+  - seeker-journey.md
+hero:
+  eyebrow: Terms summary
+  title: Placeholder summaries for legal and operational copy.
+  body: This page is reserved for short summaries of the terms that still need final wording review.
+  ctas:
+    - label: Pricing
+      href: /pricing
+      variant: primary
+    - label: FAQ
+      href: /faq
+      variant: secondary
+sections:
+  - type: cards
+    heading: Topics to finalise
+    items:
+      - title: Payments
+        body: Plain-language summary to be confirmed.
+      - title: Cancellations
+        body: Plain-language summary to be confirmed.
+      - title: Delivery and reports
+        body: Plain-language summary to be confirmed.
+      - title: Support and disputes
+        body: Plain-language summary to be confirmed.

@@ -1,0 +1,33 @@
+slug: trust-and-safety
+navLabel: Trust and safety
+title: Trust and safety | Proxies
+description: How Proxies handles trust, verification, and report quality.
+sourceDocs:
+  - trust-and-safety.md
+  - proxy-journey.md
+  - README.md
+  - roadmap.md
+hero:
+  eyebrow: Trust and safety
+  title: Trust is built into the process.
+  body: Identity verification is required before proxies accept paid jobs, and each report follows a structured checklist with photographs and written observations.
+  ctas:
+    - label: How it works
+      href: /how-it-works
+      variant: primary
+    - label: Pricing
+      href: /pricing
+      variant: secondary
+sections:
+  - type: cards
+    heading: What supports trust
+    items:
+      - title: Vetted local proxies
+        body: The service uses a local, vetted and trained proxy to attend the viewing on your behalf.
+      - title: Identity verification
+        body: Identity verification is required before proxies accept paid jobs.
+      - title: Structured reporting
+        body: Every report follows a structured checklist.
+  - type: callout
+    heading: Report quality
+    body: Reports include photographs and written observations.

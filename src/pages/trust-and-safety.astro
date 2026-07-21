@@ -1,0 +1,12 @@
+---
+import { getEntry } from 'astro:content';
+import PublicPage from '../components/PublicPage.astro';
+
+const page = await getEntry('public-pages', 'trust-and-safety');
+
+if (!page) {
+  throw new Error('Missing trust-and-safety page content.');
+}
+---
+
+<PublicPage page={page} />

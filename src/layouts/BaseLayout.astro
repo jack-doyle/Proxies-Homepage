@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+
+const { title, description } = Astro.props;
+const nav = [
+  ['/', 'Home'],
+  ['/how-it-works', 'How it works'],
+  ['/pricing', 'Pricing'],
+  ['/trust-and-safety', 'Trust and safety'],
+  ['/faq', 'FAQ'],
+  ['/terms-summary', 'Terms summary'],
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-shell site-header">
+      <a class="brand" href="/">Proxies</a>
+      <nav aria-label="Primary" class="nav">
+        {nav.map(([href, label]) => (
+          <a href={href}>{label}</a>
+        ))}
+      </nav>
+    </header>
+    <main id="main" class="site-shell">
+      <slot />
+    </main>
+    <footer class="site-shell site-footer">
+      <p>Berlin apartment viewings, structured reports, and clear pricing.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+---
+const { class: className = '', showText = true } = Astro.props as {
+  class?: string;
+  showText?: boolean;
+};
+---
+
+<a href="#top" class={`brand ${className}`.trim()} aria-label="Proxies home">
+  <img
+    class="brand__mark"
+    src="/icons/icon.png"
+    alt=""
+    aria-hidden="true"
+  />
+  {showText ? <span class="brand__word">Proxies</span> : null}
+</a>

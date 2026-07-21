@@ -1,0 +1,45 @@
+slug: pricing
+navLabel: Pricing
+title: Pricing | Proxies
+description: Clear pricing, payment, cancellation, and refund information for Proxies.
+sourceDocs:
+  - pricing-and-policies.md
+  - seeker-journey.md
+  - viewing-lifecycle.md
+hero:
+  eyebrow: Pricing
+  title: Clear price, clear charging.
+  body: The customer price is €29.99. Payment is authorised before activation, and charging happens only after successful delivery.
+  ctas:
+    - label: How it works
+      href: /how-it-works
+      variant: primary
+    - label: FAQ
+      href: /faq
+      variant: secondary
+sections:
+  - type: cards
+    heading: What is included
+    items:
+      - title: On-time attendance
+        body: A vetted local proxy attends the apartment viewing on your behalf.
+      - title: Checklist and observations
+        body: The proxy completes a structured checklist and records important observations.
+      - title: Photographs
+        body: Reports include photographs.
+      - title: Four-hour report
+        body: The report is delivered within four hours.
+  - type: cards
+    heading: Cancellations and refunds
+    items:
+      - title: More than 24 hours
+        body: Full refund.
+      - title: Within 24 hours but more than 2 hours
+        body: 50% fee.
+      - title: Within 2 hours
+        body: No refund.
+      - title: If Proxies fails to deliver
+        body: Full refund.
+  - type: callout
+    heading: No report, no charge
+    body: If no report is delivered on time, you are not charged.

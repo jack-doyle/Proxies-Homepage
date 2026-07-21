@@ -1,0 +1,45 @@
+slug: how-it-works
+navLabel: How it works
+title: How it works | Proxies
+description: See the seeker journey, from apartment address to report delivery.
+sourceDocs:
+  - seeker-journey.md
+  - proxy-journey.md
+  - viewing-lifecycle.md
+  - product-overview.md
+hero:
+  eyebrow: How it works
+  title: From address to report in five steps.
+  body: Enter the address, provide viewing details, choose up to three priorities, authorise payment, and wait for the report.
+  ctas:
+    - label: Pricing
+      href: /pricing
+      variant: primary
+    - label: Trust and safety
+      href: /trust-and-safety
+      variant: secondary
+sections:
+  - type: steps
+    heading: Seeker journey
+    items:
+      - title: Enter the apartment address
+        body: Address autocomplete is the primary entry point. Do not ask users to choose a district first.
+      - title: Provide viewing details
+        body: Collect the viewing date, viewing time, optional meeting point, and optional additional instructions.
+      - title: Select priorities
+        body: Customers may specify up to three things they especially want checked.
+      - title: Authorise payment
+        body: A payment method is authorised before activation. Charging happens only after successful delivery.
+      - title: Confirm next steps
+        body: Explain what happens next, the report deadline, the cancellation policy, and that no report means no charge.
+  - type: cards
+    heading: Proxy assignment
+    items:
+      - title: Identity verification
+        body: Identity verification is required before accepting jobs.
+      - title: Same-time notification
+        body: Eligible proxies receive a viewing notification simultaneously.
+      - title: First to confirm
+        body: The first eligible proxy who confirms receives the assignment.
+      - title: Document handover
+        body: The proxy can hand over documents at the viewing.

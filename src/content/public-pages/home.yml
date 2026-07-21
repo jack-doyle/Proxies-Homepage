@@ -1,0 +1,47 @@
+slug: home
+navLabel: Home
+title: Proxies | Apartment viewings in Berlin
+description: Trusted local proxies attend apartment viewings for Berlin seekers and send back a structured report.
+sourceDocs:
+  - README.md
+  - product-overview.md
+  - target-users.md
+  - trust-and-safety.md
+  - pricing-and-policies.md
+hero:
+  eyebrow: Berlin apartment viewings
+  title: Arrange a local proxy for the viewing you cannot attend.
+  body: Proxies helps apartment seekers in Berlin send a vetted local person to the viewing, take photographs, record observations, and submit a report within four hours.
+  ctas:
+    - label: How it works
+      href: /how-it-works
+      variant: primary
+    - label: Pricing
+      href: /pricing
+      variant: secondary
+sections:
+  - type: cards
+    heading: What you get
+    items:
+      - title: On-time attendance
+        body: A local vetted proxy attends the viewing on your behalf.
+      - title: Photographs and observations
+        body: Reports include photographs and written observations.
+      - title: Structured checklist
+        body: Each report follows a structured checklist.
+      - title: Four-hour delivery
+        body: The report is submitted within four hours of the viewing.
+  - type: cards
+    heading: Who it is for
+    items:
+      - title: Relocating to Berlin
+        body: For people moving to Berlin who cannot attend every viewing in person.
+      - title: Travelling
+        body: For people who are away when the viewing is scheduled.
+      - title: Working during viewing hours
+        body: For people who cannot leave work to attend in person.
+      - title: Living elsewhere
+        body: For people already living in another city.
+  - type: callout
+    heading: Payment and charging
+    body: A payment method is authorised before activation. You are charged only after successful report delivery.

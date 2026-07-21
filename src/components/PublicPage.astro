@@ -1,0 +1,72 @@
+---
+import { type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+type PublicPageEntry = CollectionEntry<'public-pages'>;
+
+const { page } = Astro.props as { page: PublicPageEntry };
+
+const sectionHeadingClass = 'section-heading';
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <section class="hero">
+    <div>
+      {page.data.hero.eyebrow ? <span class="eyebrow">{page.data.hero.eyebrow}</span> : null}
+      <h1>{page.data.hero.title}</h1>
+      <p>{page.data.hero.body}</p>
+      {page.data.hero.ctas?.length ? (
+        <div class="actions">
+          {page.data.hero.ctas.map((cta) => (
+            <a class={cta.variant === 'primary' ? 'button' : 'ghost'} href={cta.href}>
+              {cta.label}
+            </a>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  </section>
+
+  {page.data.sections.map((section) => (
+    <section class="section">
+      <h2 class={sectionHeadingClass}>{section.heading}</h2>
+      {section.type === 'cards' ? (
+        <div class="card-grid">
+          {section.items.map((item) => (
+            <article class="card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      ) : null}
+      {section.type === 'steps' ? (
+        <div class="step-list">
+          {section.items.map((item, index) => (
+            <article class="step">
+              <div class="step-index">{String(index + 1).padStart(2, '0')}</div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      ) : null}
+      {section.type === 'faq' ? (
+        <div class="card-grid">
+          {section.items.map((item) => (
+            <article class="card">
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      ) : null}
+      {section.type === 'callout' ? (
+        <article class="panel" style="padding: 1.4rem">
+          <h3>{section.heading}</h3>
+          <p>{section.body}</p>
+        </article>
+      ) : null}
+    </section>
+  ))}
+</BaseLayout>

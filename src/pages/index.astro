@@ -1,0 +1,527 @@
+---
+import { getEntry } from 'astro:content';
+import '../styles/landing.css';
+import Logo from '../components/landing/Logo.astro';
+import ReportPhone from '../components/landing/ReportPhone.astro';
+
+const FUNNEL_URL = '#'; // TODO: replace with the funnel URL when available.
+
+const faqPage = await getEntry('public-pages', 'faq');
+
+if (!faqPage) {
+  throw new Error('Missing FAQ page content.');
+}
+
+const trustItems = [
+  {
+    icon: 'viewing',
+    label: 'In-person viewing',
+  },
+  {
+    icon: 'proxy',
+    label: 'Vetted local proxy',
+  },
+  {
+    icon: 'clock',
+    label: 'Report within 4 hours',
+  }
+];
+
+const steps = [
+  {
+    number: '1',
+    title: 'Enter the viewing details',
+    body: 'Share the address, appointment time and the specific questions you want answered on site.',
+  },
+  {
+    number: '2',
+    title: 'A local proxy attends',
+    body: 'A vetted trained proxy goes to the viewing in your place, on time, looks at everything you would, and can hand over documents for you.',
+  },
+  {
+    number: '3',
+    title: 'Receive photos, notes and impressions',
+    body: 'Within four hours you get a clear report with room photos, honest notes and an overall verdict.',
+  },
+];
+
+const reportContents = [
+  {
+    icon: 'camera',
+    title: 'Photos of every room',
+    body: 'Clear, honest pictures of each room, the kitchen and bathroom, not just the flattering angles.',
+  },
+  {
+    icon: 'light',
+    title: 'Condition, light and noise',
+    body: 'Notes on the state of the flat, how much daylight it gets and how quiet it feels at the viewing.',
+  },
+  {
+    icon: 'building',
+    title: 'Building and surroundings',
+    body: 'A read on the building, the stairwell and the immediate neighbourhood around the address.',
+  },
+  {
+    icon: 'questions',
+    title: 'Answers to your questions',
+    body: 'Direct answers to up personal questions you ask before the appointment.',
+  },
+];
+
+const useCases = [
+  {
+    icon: 'briefcase',
+    title: 'Stuck at work',
+    body: 'A viewing lands in the middle of your workday and you cannot get away without losing the slot.',
+  },
+  {
+    icon: 'plane',
+    title: 'Out of town',
+    body: 'You are travelling or moving to Berlin from elsewhere and cannot be there in person yet.',
+  },
+  {
+    icon: 'globe',
+    title: 'Relocating from abroad',
+    body: 'You are moving to Berlin from another country and need someone local at the viewing before you arrive.',
+  },
+  {
+    icon: 'calendar',
+    title: 'Short notice',
+    body: 'The appointment is confirmed for tomorrow and you simply have no way to attend in time.',
+  },
+];
+
+const pricingPoints = [
+  'Payment authorised when you book',
+  'Charged only when the report is delivered on time',
+  'Cancel free of charge up to two hours before the viewing',
+];
+
+const faqSection = faqPage.data.sections.find((section) => section.type === 'faq');
+
+if (!faqSection) {
+  throw new Error('Missing FAQ section content.');
+}
+
+const footerLinks = [
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Legal notice', href: '#legal' },
+  { label: 'Privacy', href: '#privacy' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Can’t make an apartment viewing in Berlin? Send a vetted local proxy to view the flat, take photos and report back within four hours. €29.99 · No report, no charge."
+    />
+    <title>Proxies - Send a trusted local to your apartment viewing in Berlin</title>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    />
+  </head>
+  <body>  
+
+    <header class="site-header" data-site-header>
+      <div class="shell site-header__inner">
+        <Logo />
+
+        <nav class="site-header__nav" aria-label="Main">
+          <a href="#how-it-works">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="site-header__actions">
+          <a href="#login">Log in</a>
+          <a class="button button--primary" href="#top">Book a proxy</a>
+        </div>
+
+        <button
+          class="site-header__menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-menu-toggle
+        >
+          <span class="sr-only">Open menu</span>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M3 5.5h16M3 11h16M3 16.5h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="site-header__mobile" id="mobile-menu" data-mobile-menu hidden>
+        <nav aria-label="Mobile" class="site-header__mobile-nav">
+          <a href="#how-it-works">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#login">Log in</a>
+          <a class="button button--primary button--block" href="#top">Book a proxy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="top" class="hero">
+        <div class="shell hero__grid">
+          <div class="hero__copy">
+            <h1>Can't make the apartment viewing?</h1>
+            <p class="hero__lede">
+              Send a trusted local proxy to view the apartment, take photos and report back within
+              four hours.
+            </p>
+
+            <div class="hero__cta">
+              <a class="button button--primary hero__cta-button" href={FUNNEL_URL}>Book a proxy</a>
+            </div>
+          </div>
+
+          <div class="hero__visual">
+            <div class="hero__halo" aria-hidden="true"></div>
+            <ReportPhone />
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Trust highlights">
+        <div class="shell trust-strip__grid">
+          {trustItems.map((item) => (
+            <div class="trust-strip__item">
+              <span class="trust-strip__icon" aria-hidden="true">
+                {item.icon === 'viewing' ? (
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="6" r="2.25" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M10 8.8V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                ) : null}
+                {item.icon === 'proxy' ? (
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M10 2.8 3.8 5.4v3.7c0 3.7 2.6 6.1 6.2 7.2 3.6-1.1 6.2-3.5 6.2-7.2V5.4L10 2.8Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M7.6 10.3 9.2 11.9l3.5-3.6"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                ) : null}
+                {item.icon === 'clock' ? (
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="7.2" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M10 6.2V10l2.8 1.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                ) : null}
+                {item.icon === 'receipt' ? (
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M5 3.5h10v13l-1.4-.9-1.4.9-1.4-.9-1.4.9-1.4-.9-1.4.9V3.5Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    />
+                    <path d="M7 7.2h6M7 10h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                ) : null}
+              </span>
+              <span class="trust-strip__label">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell section__head">
+          <h2>Keep your apartment search moving</h2>
+          <p>
+            In Berlin, a viewing invitation is hard to come by and easy to lose. Appointments turn
+            up during work, while you're travelling or at short notice. Proxies lets you evaluate
+            the apartment properly without giving up the opportunity.
+          </p>
+        </div>
+
+        <div class="shell use-case">
+          {useCases.map((item) => (
+            <article class="use-case__card">
+              <span class="use-case__icon" aria-hidden="true">
+                {item.icon === 'briefcase' ? (
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M6.5 6V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      stroke-linecap="round"
+                    />
+                    <rect x="3" y="6" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M3 10h14" stroke="currentColor" stroke-width="1.4" />
+                  </svg>
+                ) : null}
+                {item.icon === 'plane' ? (
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M3 10.2 16.8 3.8 13 16.8 9.7 10.6 3 10.2Z"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      stroke-linejoin="round"
+                    />
+                    <path d="M9.6 10.6 16.8 3.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                  </svg>
+                ) : null}
+                {item.icon === 'calendar' ? (
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <rect x="3" y="4" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M6 2.8v2.4M14 2.8v2.4M3 7.5h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                  </svg>
+                ) : null}
+                {item.icon === 'globe' ? (
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M3 10h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                    <path d="M10 3.1c2 1.8 3.2 4.3 3.2 6.9S12 15.2 10 16.9c-2-1.7-3.2-4.2-3.2-6.9S8 4.9 10 3.1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+                  </svg>
+                ) : null}
+              </span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="how-it-works" class="section">
+        <div class="shell section__head">
+          <h2>How it works</h2>
+          <p>Three simple steps between a missed appointment and a confident decision.</p>
+        </div>
+
+        <ol class="shell steps">
+          {steps.map((step) => (
+            <li class="steps__item">
+              <div class="steps__top">
+                <span class="steps__icon" aria-hidden="true">
+                  <span>{step.number}</span>
+                </span>
+              </div>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="section section--report">
+        <div class="shell report-preview">
+          <div class="report-preview__copy">
+            <h2>What's in your report</h2>
+            <p>
+              Everything you need to decide whether to apply - the same things you'd check if you
+              were standing in the flat yourself.
+            </p>
+
+            <ul class="report-preview__list">
+              {reportContents.map((item) => (
+                <li class="report-preview__card">
+                  <span class="report-preview__badge" aria-hidden="true">
+                    {item.icon === 'camera' ? (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                          d="M4 6.5h2l1.2-1.8h5.6L14 6.5h2a1.5 1.5 0 0 1 1.5 1.5v6A1.5 1.5 0 0 1 16 15.5H4A1.5 1.5 0 0 1 2.5 14V8A1.5 1.5 0 0 1 4 6.5Z"
+                          stroke="currentColor"
+                          stroke-width="1.4"
+                          stroke-linejoin="round"
+                        />
+                        <circle cx="10" cy="11" r="2.8" stroke="currentColor" stroke-width="1.4" />
+                      </svg>
+                    ) : null}
+                    {item.icon === 'light' ? (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                          d="M10 2.8v1.4M10 15.8v1.4M4.9 4.9l1 1M14.1 14.1l1 1M2.8 10h1.4M15.8 10h1.4M4.9 15.1l1-1M14.1 5.9l1-1"
+                          stroke="currentColor"
+                          stroke-width="1.3"
+                          stroke-linecap="round"
+                        />
+                        <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.3" />
+                      </svg>
+                    ) : null}
+                    {item.icon === 'building' ? (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 16.5V5.8l6-2.3 6 2.3v10.7" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+                        <path d="M7 7h2M7 10h2M11 7h2M11 10h2M7 13h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                      </svg>
+                    ) : null}
+                    {item.icon === 'questions' ? (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                          d="M7.5 7.2a2.8 2.8 0 0 1 5 1.7c0 1.8-2.2 2.1-2.2 3.7"
+                          stroke="currentColor"
+                          stroke-width="1.4"
+                          stroke-linecap="round"
+                        />
+                        <circle cx="10" cy="14.6" r="0.9" fill="currentColor" />
+                      </svg>
+                    ) : null}
+                  </span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <figure class="report-preview__gallery">
+            <div class="report-preview__grid">
+              <div class="report-preview__photo report-preview__photo--wide">
+                <img src="/report/living-room.png" alt="Living room bathed in afternoon light" />
+              </div>
+              <div class="report-preview__photo">
+                <img src="/report/kitchen.png" alt="The apartment kitchen" />
+              </div>
+              <div class="report-preview__photo">
+                <img src="/report/bedroom.png" alt="A bedroom in the apartment" />
+              </div>
+              <div class="report-preview__photo report-preview__photo--wide">
+                <img src="/report/building.png" alt="The building facade and surrounding street" />
+              </div>
+            </div>
+            <figcaption>A sample set of photos from a completed Berlin viewing.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="pricing" class="section section--pricing">
+        <div class="shell pricing">
+          <div class="pricing__summary">
+            <p class="pricing__eyebrow">Per completed viewing</p>
+            <div class="pricing__price">€29.99</div>
+            <p>
+              One flat price for a full in-person viewing and a written report. No subscription,
+              no hidden fees.
+            </p>
+          </div>
+
+          <div class="pricing__details">
+            <h3>Fair by design</h3>
+            <ul class="pricing__list">
+              {pricingPoints.map((point) => (
+                <li>
+                  <span class="pricing__check" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="m3 7.4 2.2 2.2L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section section--faq">
+        <div class="shell section__head">
+          <h2>{faqSection.heading}</h2>
+          <p>Short answers to the questions people usually ask before they book.</p>
+        </div>
+
+        <div class="shell faq">
+          {faqSection.items.map((item) => (
+            <details class="faq__item">
+              <summary>
+                <span>{item.question}</span>
+                <span class="faq__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                      d="M4.5 7.2 9 11.7l4.5-4.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section id="book-now" class="final-cta">
+        <div class="shell final-cta__inner">
+          <h2>Ready to book?</h2>
+          <p>
+            Check whether a local proxy is available for your
+            appointment.
+          </p>
+          <div class="final-cta__actions">
+            <a class="button button--primary button--large" href={FUNNEL_URL}>Book a proxy</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <div class="site-footer__brand">
+          <Logo />
+          <p>Berlin, Germany</p>
+        </div>
+
+        <nav aria-label="Footer" class="site-footer__links">
+          {footerLinks.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="shell">
+          <p>
+            © {new Date().getFullYear()} Proxies. A local viewing service for apartment seekers.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" is:inline>
+      const header = document.querySelector('[data-site-header]');
+      const toggle = header?.querySelector('[data-menu-toggle]');
+      const mobileMenu = header?.querySelector('[data-mobile-menu]');
+
+      if (header && toggle && mobileMenu) {
+        const setOpen = (open) => {
+          header.dataset.open = String(open);
+          toggle.setAttribute('aria-expanded', String(open));
+          mobileMenu.hidden = !open;
+        };
+
+        setOpen(false);
+
+        toggle.addEventListener('click', () => {
+          setOpen(header.dataset.open !== 'true');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => setOpen(false));
+        });
+      }
+    </script>
+  </body>
+</html>
